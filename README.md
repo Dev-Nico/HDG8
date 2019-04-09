@@ -1,4 +1,5 @@
-﻿# Hospitalización domiliciaria grupo 8					![logo unab] (http://vinculacion.unab.cl/wp-content/uploads/2018/06/fondo-transparente-logo-color-con-texto-azul.png)
+﻿# Hospitalización domiliciaria grupo 8
+![logo unab] (http://vinculacion.unab.cl/wp-content/uploads/2018/06/fondo-transparente-logo-color-con-texto-azul.png)
 ## Proyecto de Ingeniería de Software 1 y 2
 
 ### Integrantes
