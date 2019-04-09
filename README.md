@@ -1,7 +1,7 @@
 ﻿# Hospitalización domiliciaria grupo 8
-Proyecto de Ingeniería de Software 1 y 2
+##Proyecto de Ingeniería de Software 1 y 2
 
-
+###Tareas
 * **T1**: *Recopilación de requerimientos del cliente*
 	* **T1.2**: *Validación de requerimientos con el cliente*
 	* **T1.3**: *Corrección de requerimientos*
