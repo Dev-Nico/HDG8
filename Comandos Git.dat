@@ -1,9 +1,9 @@
 git clone <direccion repositorio>
 git config user.email "correocuenta"
 git config user.name "nombrecuenta"
-git add "nombrearchivo"
+git add "nombrearchivo" o git add . para agregar todos los archivos
 git commit -m "Texto descriptivo"
-git push origin master
+git push
 
 ## Si no funciona el push, hacer un git pull y volver a intentar
 ## Si eso no funciona, llorele a su dios
