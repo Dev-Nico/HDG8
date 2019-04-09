@@ -16,8 +16,14 @@
 		* **T2.1**: *Enfermero buscando ruta*
 		* **T2.2**: *Enfermero entregando reporte del día*
 		* **T2.3**: *Mensajes entre enfermero y paciente*
+        * **T2.4**: *Iniciar tiempo de ruta*
+        * **T2.5**: *Reprogramar ruta*
+        * **T2.6**: *Exportar ficha electrónica*
+        * **T2.7**: *Realizar videollamada*
+        * **T2.8**: *Generar registro de pacientes*
 * **T3**: *Glosario*
 * **T4**: *Especificación de requerimientos*
 * **T5**: *Minuta de reunión*
 * **T6**: *Comprender el objetivo de la aplicación*
 * **T7**: *Definir el alcance de la aplicación*
+
