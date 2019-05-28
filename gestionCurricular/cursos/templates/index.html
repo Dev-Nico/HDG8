@@ -1,4 +1,20 @@
-<h1>Bienvenido al Sistema de Gestión Curricular</h1>
+<!--{% extends "base.html" %-->
+
+{% block content %}
+<h1>Bienvenido al sistema de gestión curricular</h1>
 <br/>
 <br/>
-<a href="/cursos">Listado de Cursos Disponibles este semestre</a>
+{% if not user.is_authenticated %}
+	<p>Para acceder al sistema debes ingresar tu usuario y contraseña o registrarte.</p>
+{% endif %}
+{% endblock %}
+{% if user.is_authenticated %}
+	<h2>Bienvenido {{user.username }}!</h2>
+	<a href="/cursos">Listado de Cursos Disponibles este semestre</a>
+	<p><a href="{% url 'logout' %}">logout</a>
+{% else %}
+	<p>Para acceder al sistema debes ingresar tu usuario y contraseña</p>
+	<a href="{% url 'login' %}">login</a>
+	<p>Sin no tienes un usuario puedes registrarte</p>
+	<a href="{% url 'signup' %}">signup</a>
+{% endif %}

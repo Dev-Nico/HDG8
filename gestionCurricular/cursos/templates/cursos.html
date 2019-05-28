@@ -1,5 +1,6 @@
-<ur>
-{% for cursos in cursos %}
- <li>{{ curso.sigla }} {{ curso.nombre }}</li>
+<h1>Cursos dictados este semestre</h1>
+<ul>
+{% for curso in cursos %}
+	<li><a href="/curso/{{ curso.sigla }}/">{{ curso.nombre }}</a></li>
 {% endfor %}
-</ur>
+</ul>
