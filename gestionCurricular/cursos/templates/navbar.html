@@ -13,21 +13,20 @@
 					<a class="nav-link" href="#">Gestión de NRC</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{% url ĺogout' %}">Logout</a>
+					<a class="nav-link" href="{% url 'logout' %}">Logout</a>
 				</li>
 			</ul>
 			<span class="navbar-text">
-				{{ user.username}}
+				{{ user.username }}
 			</span>
 			{% else %}
 				<li class="nav-item">
 					<a class="nav-link" href="{% url 'login' %}">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{% url 'signup' %}">Singup</a>
+					<a class="nav-link" href="{% url 'signup' %}">Signup</a>
 				</li>
 			</ul>
-				<!-- agregar un <ul> en algun punto? se cierra el ul anterior -->
-				{% endif %}
+			{% endif %}
 	</div>
 </nav>

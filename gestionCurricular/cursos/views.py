@@ -23,9 +23,9 @@ class HomePageView(TemplateView):
 class HomeCursosView(PermissionRequiredInGroupMixin, LoginRequiredMixin, TemplateView):
 	permission_required='puede_buscar_cursos'
 	def get(self, request, **kwargs):
-		#cursoFactory=CursoFactory()
-		#return render(request,'cursos.html',{'cursos':cursoFactory.obtenerCursos()})
-		return render(request, 'cursos.html',{'cursos':Curso.cursos.all()})
+		cursoFactory=CursoFactory()
+		return render(request,'cursos.html',{'cursos':cursoFactory.obtenerCursos()})
+		#return render(request, 'cursos.html',{'cursos':Curso.cursos.all()})
 
 class DetalleCursoView(LoginRequiredMixin, TemplateView):
 	def get(self, request, **kwargs):

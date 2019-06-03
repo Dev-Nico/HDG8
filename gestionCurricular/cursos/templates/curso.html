@@ -1,15 +1,12 @@
-<h1>Información del Curso</h1>
-<table>
-	<tr>
-		<td>Sigla</td>
-		<td>{{curso.sigla}}</td>
-	</tr>
-	<tr>
-		<td>Nombre</td>
-		<td>{{curso.nombre}}</td>
-	</tr>
-	<tr>
-		<td>Créditos</td>
-		<td>{{curso.creditos}}</td>
-	</tr>
-</table>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+	<h1 class="display-4">{{ curso.sigla }}</h1>
+	<p class="lead">{{ curso.nombre }}</p>
+	<hr class="my-4">
+	<p>{{curso.creditos}} créditos</p>
+	<a class="btn btn-primary btn-lg" href="#" role="button">Inscribir</a>
+</div>
+{% endblock %}

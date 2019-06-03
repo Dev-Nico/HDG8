@@ -1,6 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1>Cursos dictados este semestre</h1>
-<ul>
+<div class="container">
+	<div class="row mt-5 justify-content-center">
 {% for curso in cursos %}
-	<li><a href="/curso/{{ curso.sigla }}/">{{ curso.nombre }}</a></li>
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{ curso.sigla }}</h5>
+				<p class="card-text">{{ curso.nombre }}</p>
+				<a href="/curso/{{ curso.sigla }}/" class="card-link">Ir</a>
+			</div>
+		</div>
 {% endfor %}
-</ul>
+	</div>
+</div>
+{% endblock %}
