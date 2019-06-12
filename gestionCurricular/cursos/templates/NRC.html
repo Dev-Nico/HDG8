@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center">Cursos por NRC dictados este semestre</h1>
+<div class="container">
+	<div class="row mt-5 justify-content-center">
+{% for curso in cursos %}
+		<ol class="list-group">
+			<li class="list-group-item">{{ curso.sigla }}</li>
+			<a href="/curso/{{ curso.sigla }}/" class="list-group-item">{{ curso.nrc }}</a>
+		</ol>
+{% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -7,6 +7,10 @@
 	<p class="lead">{{ curso.nombre }}</p>
 	<hr class="my-4">
 	<p>{{curso.creditos}} créditos</p>
-	<a class="btn btn-primary btn-lg" href="#" role="button">Inscribir</a>
+	<hr class="my-4">
+	<p>NRC {{ curso.nrc }}</p>
+	<a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=2dbR2JZmlWo" role="button">Inscribir</a>
+	<a class="btn btn-primary btn-lg" href="/curso/{{ curso.id }}/update" role="button">Actualizar</a>
+	<a class="btn btn-primary btn-lg" href="/curso/{{ curso.id }}/delete" role="button">Borrar</a>
 </div>
 {% endblock %}

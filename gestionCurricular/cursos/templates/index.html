@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Bienvenido al sistema de gestión curricular</h1>
+<h1 class="text-center">Bienvenido al sistema de gestión curricular</h1>
 <br/>
 <br/>
 {% if not user.is_authenticated %}
-	<p>Para acceder al sistema debes ingresar tu usuario y contraseña o registrarte.</p>
+	<p class="text-center">Para acceder al sistema debes ingresar tu usuario y contraseña o registrarte.</p>
 {% endif %}
 {% endblock %}

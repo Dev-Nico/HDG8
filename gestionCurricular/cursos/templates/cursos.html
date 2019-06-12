@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Cursos dictados este semestre</h1>
+<h1 class="text-center">Cursos dictados este semestre</h1>
 <div class="container">
 	<div class="row mt-5 justify-content-center">
 {% for curso in cursos %}
@@ -15,5 +15,6 @@
 		</div>
 {% endfor %}
 	</div>
+	<a class="btn btn-primary btn-lg" href="/curso/create/" role="button">Agregar Curso</a>
 </div>
 {% endblock %}
