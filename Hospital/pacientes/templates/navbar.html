@@ -1,0 +1,32 @@
+<nav class="navbar-expand-lg navbar-dark bg-primary">
+	<button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navegation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<img align="none" src="http://hospitalelpino.cl/wphep/wp-content/uploads/2017/03/gob_hep_2011.jpg" act="Logo Hospital el pino" width="150" height="150">
+	<div>
+		<a class="navbar-brand" align="center" href="{% url 'index' %}">Hospitalización Domiciliaria</a>
+	</div>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav mr-auto">
+			{% if user.is_authenticated %}
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'pacientes' %}">Listado de Pacientes<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+				</li>
+			</ul>
+			<span class="navbar-text">
+				{{ user.username }}
+			</span>
+			{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login' %}">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'signup' %}">Signup</a>
+				</li>
+			</ul>
+			{% endif %}
+	</div>
+</nav>

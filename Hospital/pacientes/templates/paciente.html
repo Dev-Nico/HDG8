@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+	<h1 class="display-4">{{ paciente.primer_nombre }} {{ paciente.apellido_paterno }}</h1>
+	<hr class="my-4">
+	<p>Rut: {{ paciente.rut }}</p>
+	<p>Domicilio: {{ paciente.domicilio }}</p>
+	<a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=2dbR2JZmlWo" role="button">Asignar a ruta</a>
+	<a class="btn btn-primary btn-lg" href="/pacientes/" role="button">Atrás</a>
+</div>
+{% endblock %}

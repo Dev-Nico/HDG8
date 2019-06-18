@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center">Listado de Pacientes</h1>
+<div class="container">
+	<div class="row mt-5 justify-content-center">
+{% for paciente in pacientes %}
+		<div class="card" style="width: 20rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{ paciente.primer_nombre }} {{ paciente.apellido_paterno }}</h5>
+				<a href="/paciente/{{ paciente.rut }}" class="card-link">Ir</a>
+			</div>
+		</div>
+{% endfor %}
+	</div>
+	<a class="btn btn-primary btn-lg" href="/paciente/create/" role="button">Agregar Paciente</a>
+</div>
+{% endblock %}

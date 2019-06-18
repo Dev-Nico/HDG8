@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+	<h1 class="display-4">{{paciente.primer_nombre}} {{ paciente.apellido_paterno }}</h1>
+	<p class="lead">{{paciente.rut}}</p>
+	<hr class="my-4">
+	<p>¿Eliminar Paciente?</p>
+	<form action="" method="POST">
+		{% csrf_token %}
+		<button type="submit" class="btn btn-primary">Confirmar borrado</button>
+	</form>
+</div>
+
+{% endblock %}

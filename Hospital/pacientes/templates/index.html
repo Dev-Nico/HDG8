@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center">Bienvenido al sistema de Hospitalización Domiciliria</h1>
+<br/>
+<br/>
+{% if not user.is_authenticated %}
+	<p class="text-center">Para acceder al sistema debes ingresar tu usuario y contraseña o registrarte.</p>
+{% endif %}
+{% endblock %}
