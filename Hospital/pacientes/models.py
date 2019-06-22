@@ -12,3 +12,10 @@ class Paciente(models.Model):
 
 	def __str__(self):
 		return "{}".format(self.rut)
+
+class Ruta(models.Model):
+	numero=models.IntegerField()
+	rutas=models.Manager()
+
+	def __str__(self):
+		return "{}".format(self.numero)
