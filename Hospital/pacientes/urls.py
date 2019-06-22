@@ -12,6 +12,7 @@ urlpatterns=[
 	path('accounts/', include('django.contrib.auth.urls')),
 	url(r'^paciente/create/$',views.PacienteCreate.as_view(success_url='/pacientes/'), name='paciente_create'),
 	url(r'^paciente/(?P<pk>\d+)/update/$', views.PacienteUpdate.as_view(success_url='/pacientes/'),name='paciente_update'),
+	url(r'^paciente/(?P<pk>\d+)/update2/$', views.PacienteUpdate2.as_view(success_url='/pacientes/'),name='paciente_update2'),
 	url(r'^paciente/(?P<pk>\d+)/delete/$', views.PacienteDelete.as_view(success_url='/pacientes/'),name='paciente_delete'),
 	url(r'^ruta/create/$',views.RutaCreate.as_view(success_url='/rutas/'), name='ruta_create'),
 	url(r'^ruta/(?P<pk>\d+)/delete/$', views.RutaDelete.as_view(success_url='/rutas/'),name='ruta_delete'),

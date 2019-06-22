@@ -8,18 +8,18 @@ class Paciente(models.Model):
 	rut=models.CharField(max_length=30)
 	domicilio=models.CharField(max_length=100)
 	fecha_nacimiento=models.DateField(auto_now=False)
+	ruta=models.IntegerField(default=0)
 	pacientes=models.Manager()
 
 	def __str__(self):
 		return "{}".format(self.rut)
 
 class Ruta(models.Model):
-	pacientes=[]
+	paciente=[]
 	numero=models.IntegerField()
 	rutas=models.Manager()
 
-	def agregar_pacientes(pac):
-		pacientes.append(pac)
+
 
 	def __str__(self):
 		return "{}".format(self.numero)

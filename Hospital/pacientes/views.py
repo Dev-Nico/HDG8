@@ -28,6 +28,12 @@ class PacienteUpdate(LoginRequiredMixin,UpdateView):
 	template_name='./paciente_form.html'
 	fields='__all__'
 
+class PacienteUpdate2(LoginRequiredMixin,UpdateView):
+	model=Paciente
+	template_name='./paciente_form2.html'
+	fields=('ruta',)
+
+
 class PacienteDelete(LoginRequiredMixin,DeleteView):
 	model=Paciente
 	template_name='./paciente_confirm_delete.html'
@@ -54,8 +60,7 @@ class HomePageView(TemplateView):
 	def get(self, request, **kwargs):
 		return render(request,'index.html', context=None)
 
-class HomePacientesView(PermissionRequiredMixin,LoginRequiredMixin,TemplateView):
-	permission_required='puede_buscar_pacientes'
+class HomePacientesView(LoginRequiredMixin,TemplateView):
 	def get (self,request,**kwargs):
 		return render(request,'pacientes.html',{'pacientes':Paciente.pacientes.all()})
 
@@ -64,8 +69,7 @@ class DetallePacienteView(LoginRequiredMixin,TemplateView):
 		rut=kwargs["rut"]
 		return render(request,'paciente.html',{'paciente':Paciente.pacientes.get(rut=rut)})
 
-class HomeRutasView(PermissionRequiredMixin, LoginRequiredMixin, TemplateView):
-	permission_required='puede_buscar_pacientes'
+class HomeRutasView(LoginRequiredMixin, TemplateView):
 	def get(self,request,**kwargs):
 		return render(request,'rutas.html',{'rutas':Ruta.rutas.all()})
 
