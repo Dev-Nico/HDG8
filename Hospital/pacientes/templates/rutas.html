@@ -7,6 +7,7 @@
 <div class="row mt-5 justify-content-center container">
 			<div class="list-group" style="width: 20rem;">
 				<a href="/ruta/{{ ruta.numero }}" class="list-group-item">Ruta {{ ruta.numero }}</a>
+				<a class="btn btn-primary btn-lg" href="/ruta/{{ ruta.id }}/delete" role="button">Borrar Ruta</a>
 			</div>
 		{% endfor %}
 	</div>

@@ -14,8 +14,12 @@ class Paciente(models.Model):
 		return "{}".format(self.rut)
 
 class Ruta(models.Model):
+	pacientes=[]
 	numero=models.IntegerField()
 	rutas=models.Manager()
+
+	def agregar_pacientes(pac):
+		pacientes.append(pac)
 
 	def __str__(self):
 		return "{}".format(self.numero)
