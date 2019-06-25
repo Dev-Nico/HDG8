@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1 class="row mt-2 justify-content-center container">Pacientes en Ruta</h1>
+	{% for paciente in pacientes %}
+	{% if not pacientes%}
+		<p>Ruta no tiene pacientes</p>
+	{% endif%}
+		<div class="row mt-2 justify-content-center container">
+			<div class="list-group" style="width: 20rem;">
+				<a href="/ruta/paciente/{{ paciente.rut }}" class="list-group-item">{{ paciente.primer_nombre }} {{ paciente.apellido_paterno }}</a>
+			</div>
+		</div>
+	{% endfor %}
+<div class="container text-center">
+	<a class="row mt-3 btn btn-primary btn-lg" href="/rutas" role="button">Atras</a>
+</div>
+{% endblock %}

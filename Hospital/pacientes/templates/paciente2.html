@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+	<h1 class="display-4">{{ paciente.primer_nombre }} {{ paciente.apellido_paterno }}</h1>
+	<hr class="my-4">
+	<p>Rut: {{ paciente.rut }}</p>
+	<p>Domicilio: {{ paciente.domicilio }}</p>
+	<p>Ruta: {{ paciente.ruta }}</p>
+	<a class="btn btn-primary btn-lg" href="/paciente/{{ paciente.id }}/update2" role="button">Asignar a ruta</a>
+	<a class="btn btn-primary btn-lg" href="/rutas/" role="button">Atrás</a>
+	<a class="btn btn-primary btn-lg" href="/paciente/{{ paciente.id }}/delete" role="button">Borrar</a>
+	<a class="btn btn-primary btn-lg" href="/paciente/{{ paciente.id }}/update" role="button">Actualizar</a>
+</div>
+{% endblock %}

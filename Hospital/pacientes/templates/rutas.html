@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<h1 class="text-center">Rutas Disponibles</h1>
+<h1 class="row mt-2 justify-content-center container">Rutas Disponibles</h1>
 		{% for ruta in rutas %}
-<div class="row mt-5 justify-content-center container">
+<div class="row mt-2 justify-content-center container">
 			<div class="list-group" style="width: 20rem;">
-				<a href="/ruta/{{ ruta.numero }}" class="list-group-item">Ruta {{ ruta.numero }}</a>
+				<a href="/ruta/{{ ruta.pk }}" class="list-group-item">Ruta {{ ruta.numero }}</a>
 				<a class="btn btn-primary btn-lg" href="/ruta/{{ ruta.id }}/delete" role="button">Borrar Ruta</a>
 			</div>
 		{% endfor %}
 	</div>
 <div class="container text-center">
-	<a class="btn btn-primary btn-lg" href="/ruta/create/" role="button">Agregar Ruta</a>
+	<a class="row mt-3 btn btn-primary btn-lg" href="/ruta/create/" role="button">Agregar Ruta</a>
 </div>
 {% endblock %}
 
