@@ -4,11 +4,19 @@
 
 <h1 class="row mt-2 justify-content-center container">Rutas Disponibles</h1>
 		{% for ruta in rutas %}
-<div class="row mt-2 justify-content-center container">
+		{% if ruta.numero is 0 %}
+			<div class="row mt-2 justify-content-center container">
 			<div class="list-group" style="width: 20rem;">
 				<a href="/ruta/{{ ruta.pk }}" class="list-group-item">Ruta {{ ruta.numero }}</a>
-				<a class="btn btn-primary btn-lg" href="/ruta/{{ ruta.id }}/delete" role="button">Borrar Ruta</a>
 			</div>
+		
+		{% else %}
+			<div class="row mt-2 justify-content-center container">
+				<div class="list-group" style="width: 20rem;">
+					<a href="/ruta/{{ ruta.pk }}" class="list-group-item">Ruta {{ ruta.numero }}</a>
+					<a class="btn btn-primary btn-lg" href="/ruta/{{ ruta.id }}/delete" role="button">Borrar Ruta</a>
+				</div>
+		{% endif %}
 		{% endfor %}
 	</div>
 <div class="container text-center">
