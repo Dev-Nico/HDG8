@@ -64,7 +64,7 @@ class DetallePacienteView2(LoginRequiredMixin,TemplateView):
 
 class HomeRutasView(LoginRequiredMixin, TemplateView):
 	def get(self,request,**kwargs):
-		return render(request,'rutas.html',{'rutas':Ruta.rutas.all()})
+		return render(request,'rutas.html',{'rutas':Ruta.rutas.all().order_by('numero')})
 
 class DetalleRutaView(LoginRequiredMixin,TemplateView):
 	def get(self,request,**kwargs):
