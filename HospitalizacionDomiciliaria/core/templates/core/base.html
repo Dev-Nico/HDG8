@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/sheetslider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/style.css' %}">
+
+    <script src="{% static 'core/js/jquery-3.4.1.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/js/bootstrap.bundle.js' %}" type="text/javascript"></script>
+
+</head>
+
+
+<body>
+    <!--HEADER-->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable navbar-light bg-white
+            border-bottom box-shadow mb-3">
+            <div>
+                <a class="navbar-brand" href="{% url 'home' %}" > <img src="{% static 'core/img/uhd.png' %}" class="imglogo"/></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'usuarios' %}">Usuarios</a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark">Perfil</a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'rutas' %}">Ruta</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--FIN HEADER-->
+
+    <!--BODY-->
+    {% block content %}
+    {% endblock %}
+
+
+
+
+</body>
+
+</html>
