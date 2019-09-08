@@ -130,3 +130,6 @@ STATIC_URL = '/static/'
 # redirec login
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+#key google maps
+#GOOGLE_MAPS_API_KEY = 'AIzaSyCKBgOHkuku1t4iStP3A47isWN2ut68RAw'

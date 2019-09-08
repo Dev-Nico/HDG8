@@ -20,13 +20,6 @@ class RegistroView(staff_member_required,CreateView):
     template_name = 'registration/registro.html'
     success_url = reverse_lazy('usuarios')
 
-    
-    #def get_form(self,form_class=None):
-     #   form = super(RegistroView,self).get_form()
-        #modificar en tiempo real0 
-        #form.fields['username'].widget = forms.TextInput(attrs={'class':'form-control mb-2', 'placeholder=':'Nombre de Usuario'})
-        #form.fields['password1'].widget = forms.TextInput(attrs={'class':'form-control mb-2', 'placeholder=':'Contraseña'})
-        #form.fields['password2'].widget = forms.TextInput(attrs={'class':'form-control mb-2', 'placeholder=':'Repite la contraseña'})
-        #form.fields['email'].widget = forms.TextInput(attrs={'class':'form-control mb-2', 'placeholder=':'Email'})
+
         
     
