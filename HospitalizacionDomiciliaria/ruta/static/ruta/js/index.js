@@ -15,8 +15,8 @@ L.Routing.control({
 
 var control = L.Routing.control(L.extend(window.lrmConfig, {
 	waypoints: [
-		L.latLng(-70.65, -33.43),
-		L.latLng(-70.64, -33.44)
+		L.latLng(-70.654606, -33.439445),
+		L.latLng(-70.64628, -33.446246)
 	],
 	geocoder: L.Control.Geocoder.nominatim(),
 	routeWhileDragging: true,
