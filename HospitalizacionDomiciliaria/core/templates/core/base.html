@@ -57,6 +57,11 @@
                         <a class="nav-link text-dark" href="{% url 'rutas' %}">Ruta</a>
                     </li>
                     {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'reportes' %}">reportes</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

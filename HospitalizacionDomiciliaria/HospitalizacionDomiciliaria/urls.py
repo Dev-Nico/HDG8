@@ -30,4 +30,7 @@ urlpatterns = [
 
     #path ruta
     path('rutas/', include('ruta.urls')),
+
+    #path reportes
+    path('reportes/', include('reportes.urls')),
 ]
