@@ -6,8 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django import forms
 
-from .forms import FuncionarioForm
-from .models import RegistroFuncionarioForm
+from .forms import FuncionarioForm, PacienteForm
+from .models import RegistroFuncionarioForm, RegistroPacienteForm
 
 # Create your views here.
 class UsuariosPageView(staff_member_required,TemplateView):
@@ -18,6 +18,12 @@ class RegistroView(staff_member_required,CreateView):
     model = RegistroFuncionarioForm
     form_class = FuncionarioForm
     template_name = 'registration/registro.html'
+    success_url = reverse_lazy('usuarios')
+
+class RegistroPacienteView(staff_member_required,CreateView):
+    model = RegistroPacienteForm
+    form_class = PacienteForm
+    template_name = 'registration/registroPaciente.html'
     success_url = reverse_lazy('usuarios')
 
 
