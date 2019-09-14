@@ -113,11 +113,11 @@
     for(var i=0 ; i < listapacientes.length ; i++){
       paciente = listapacientes[i]["name"]
       listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
-      idArray[i] = "list-home-list"+i;
+      //idArray[i] = "list-home-list"+i;
       document.getElementById("list-tab").innerHTML+=listtext;
     }
-    savetext = ``  
-    document.getElementById("boton-report").innerHTML+=savetext;
+    //savetext = ``  
+    //document.getElementById("boton-report").innerHTML+=savetext;
   }
 
 
