@@ -33,4 +33,7 @@ urlpatterns = [
 
     #path reportes
     path('reportes/', include('reportes.urls')),
+
+    #path visitaPacientes
+    path('visitaPacientes/', include('visitaPacientes.urls')),
 ]
