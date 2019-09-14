@@ -1,32 +1,147 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+
+
+<!--    Codigo en Progreso   -->
+
+
 <div>Listado de Pacientes</div>
 <br><br>
 <div class="row">
-    <div class="col-4">
-      <div class="list-group" id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Paciente 1</a>
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Paciente 2</a>
-        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Paciente 3</a>
-        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Paciente 4</a>
-      </div>
+
+  <!--Columna Izquierda-->
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <!--
+        Lista generada en js dinamicamente
+      -->
     </div>
-    <div class="col-8">
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">
-              Cuadro para escribir  --  pequeño resumen (enfermedad, tratamiento, edad,etc) en caso de que el visualizador no recuerde bien los nombres
-          </textarea>
+  </div>
+
+  <!--Columna Derecha-->
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <!--Texto-->
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">
+          Cuadro para escribir  --  pequeño resumen (enfermedad, tratamiento, edad,etc) en caso de que el visualizador no recuerde bien los nombres
+        </textarea>
+      </div>
+      boton añadir reporte
+      <br>
+      <!--Info General-->
+      <div class="card-group">
+        <div class="card bg-light mb-3">
+          <div class="card-header">Nombre</div>
+          <div class="card-body">
+            <h5 id="cardName" class="card-title"></h5>
+            <p class="card-text">dirección x comuna san bernardo.</p>
+          </div>
         </div>
+        <div class="card bg-light mb-3">
+          <div class="card-header">Caracteristica principal</div>
+          <div class="card-body">
+            <h5 id="cardCaract" class="card-title"></h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3">
+          <div class="card-header">Edad</div>
+          <div class="card-body">
+            <h5 id="cardEdad" class="card-title"></h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <!--
         <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Historial de reportes</div>
         <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
           <textarea name="comentarios" style="width: 98%">Escribe aquí tus comentarios</textarea>
         </div>
         <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Fechas -- Editar reporte (solo admin supremo)</div>
-      </div>
+      -->
     </div>
   </div>
-  <br><br>
-  <div>Mas Pacientes (Dinamic)</div>
+</div>
+
+
+
+
+
+<script>
+  var idArray = [];
+  var numId = 0;
+  var obj = {property1: ''};
+  var paciente = "paciente";
+  var listapacientes = [
+    {
+      name: 'Paciente 1',
+      caracteristica_principal: 'Enfermedad cardiaca',
+      edad: 35
+    },
+    {
+      name: 'Paciente 2',
+      caracteristica_principal: 'Diabetes',
+      edad: 60
+
+    },
+    {
+      name: 'Paciente 3',
+      caracteristica_principal: 'Parkinson',
+      edad: 76
+    },
+    {
+      name: 'Paciente 4',
+      caracteristica_principal: 'Alzhaimer',
+      edad: 58
+    },
+    {
+      name: 'Paciente 5',
+      caracteristica_principal: 'Atropellado',
+      edad: 41
+    },
+    {
+      name: 'Paciente 6',
+      caracteristica_principal: 'Riñon',
+      edad: 65
+    }
+  ];
+  window.onload=inicio();
+  function inicio(){
+
+
+    for(var i=0 ; i < listapacientes.length ; i++){
+      paciente = listapacientes[i]["name"]
+      var listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
+      idArray[i] = "list-home-list"+i;
+
+      document.getElementById("list-tab").innerHTML+=listtext;
+    }
+    //alert(idArray);
+    //alert(idArray[i][0]);
+
+  }
+
+
+  /*Función llamada al hacer click en un paciente*/
+  function infobox(id){
+    //document.getElementById("list-home-list${i}")
+    //alert(id)
+    
+    document.getElementById("cardName").innerHTML=`${listapacientes[i]["name"]}`;
+    document.getElementById("cardCaract").innerHTML=`${listapacientes[i]["caracteristica_principal"]}`;
+    document.getElementById("cardEdad").innerHTML=`${listapacientes[i]["edad"]}`;
+  }
+
+
+</script>
+
 {% endblock %}
+
+
+for (var i = 0; i < 9; i++) {
+  n += i;
+  mifuncion(n);
+}
