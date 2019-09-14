@@ -3,4 +3,154 @@
 {% block content %}
 
 
+<!--    Codigo en Progreso   -->
+
+
+
+<br><br>
+<div class="row">
+
+  <!--Columna Izquierda-->
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <!--
+        Lista generada en js dinamicamente
+      -->
+    </div>
+  </div>
+
+  <!--Columna Derecha-->
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <!--Cuadro de Texto-->
+      <!--<meta charset="utf-8" />
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+      <script>
+        $(function () {
+        $("#datepicker").datepicker();
+        });
+      </script>
+
+      <body>
+        Seleccione fecha de visita
+      <div id="datepicker"></div>
+      </body>
+    -->
+      <form>
+        <div>
+          <label for="idDia">Ingresa fecha de visita:</label>
+          <input type="date" id="idDia" name="Fecha Visita">
+        </div>
+      </form>
+      <!--Boton Guardar Visita-->
+      <div id="boton-report">
+        <center>
+        <div style="text-align:center;width:200px"><a class="list-group-item list-group-item-action active " id="save-report" onclick=saveReport() data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agendar Visita</a></div>
+      </center>
+      </div>
+      <br>
+      <!--Info General-->
+      <div class="card-group">
+        <div class="card bg-light mb-3">
+          <div class="card-header">Nombre</div>
+          <div class="card-body">
+            <h5 id="cardName" class="card-title"></h5>
+            <p class="card-text">dirección x comuna san bernardo.</p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3">
+          <div class="card-header">Caracteristica principal</div>
+          <div class="card-body">
+            <h5 id="cardCaract" class="card-title"></h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3">
+          <div class="card-header">Edad</div>
+          <div class="card-body">
+            <h5 id="cardEdad" class="card-title"></h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+  var listtext = "boton lista paciente";
+  var savetext = "boton guarder reporte";
+  var idArray = [];
+  numId = 0;
+  var obj = {property1: ''};
+  var paciente = "paciente";
+  var listapacientes = [
+    {
+      name: 'Paciente 1',
+      caracteristica_principal: 'Enfermedad cardiaca',
+      edad: 35
+    },
+    {
+      name: 'Paciente 2',
+      caracteristica_principal: 'Diabetes',
+      edad: 60
+
+    },
+    {
+      name: 'Paciente 3',
+      caracteristica_principal: 'Parkinson',
+      edad: 76
+    },
+    {
+      name: 'Paciente 4',
+      caracteristica_principal: 'Alzhaimer',
+      edad: 58
+    },
+    {
+      name: 'Paciente 5',
+      caracteristica_principal: 'Atropellado',
+      edad: 41
+    },
+    {
+      name: 'Paciente 6',
+      caracteristica_principal: 'Riñon',
+      edad: 65
+    }
+  ];
+
+
+  window.onload=inicio();
+  /*Carga los botones*/
+  function inicio(){
+    for(var i=0 ; i < listapacientes.length ; i++){
+      paciente = listapacientes[i]["name"]
+      listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
+      //idArray[i] = "list-home-list"+i;
+      document.getElementById("list-tab").innerHTML+=listtext;
+    }
+    //savetext = ``  
+    //document.getElementById("boton-report").innerHTML+=savetext;
+  }
+
+
+  /*Función llamada al hacer click en un paciente*/
+  function infobox(id){
+    numId = Number(id.substr(14));
+    document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
+    document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
+    document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;
+  }
+function saveReport(id){
+    alert("reporte de paciente con id " + numId + " guardado (habilitado cuando se construya base de datos)");
+}
+
+</script>
+
 {% endblock %}
+
