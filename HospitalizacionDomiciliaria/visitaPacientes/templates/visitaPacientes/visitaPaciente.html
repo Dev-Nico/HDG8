@@ -47,7 +47,7 @@
       <!--Boton Guardar Visita-->
       <div id="boton-report">
         <center>
-        <div style="text-align:center;width:200px"><a class="list-group-item list-group-item-action active " id="save-report" onclick=saveReport() data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agendar Visita</a></div>
+        <div style="text-align:center;width:200px"><a class="list-group-item list-group-item-action active " id="save-visit" onclick=saveVisit() data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agendar Visita</a></div>
       </center>
       </div>
       <br>
@@ -145,9 +145,10 @@
     document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
     document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
     document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;
+    document.getElemntByID("idDia").innerHTML="";
   }
-function saveReport(id){
-    alert("reporte de paciente con id " + numId + " guardado (habilitado cuando se construya base de datos)");
+function saveVisit(id){
+    alert("visita de paciente " + listapacientes[numId]["name"] + " guardado (habilitado cuando se construya base de datos)");
 }
 
 </script>
