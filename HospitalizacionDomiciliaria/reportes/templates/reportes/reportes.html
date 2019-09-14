@@ -22,13 +22,16 @@
   <!--Columna Derecha-->
   <div class="col-8">
     <div class="tab-content" id="nav-tabContent">
-      <!--Texto-->
+      <!--Cuadro de Texto-->
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">
-          Cuadro para escribir  --  pequeño resumen (enfermedad, tratamiento, edad,etc) en caso de que el visualizador no recuerde bien los nombres
-        </textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
       </div>
-      boton añadir reporte
+      <!--Boton Guardar Reporte-->
+      <div id="boton-report">
+
+        <div style="margin:2px"><a class="list-group-item list-group-item-action active" id="save-report" onclick=saveReport() data-toggle="list" href="#list-home" role="tab" aria-controls="home">Guardar Reporte</a></div>
+
+      </div>
       <br>
       <!--Info General-->
       <div class="card-group">
@@ -71,8 +74,10 @@
 
 
 <script>
+  var listtext = "boton lista paciente";
+  var savetext = "boton guarder reporte";
   var idArray = [];
-  var numId = 0;
+  numId = 0;
   var obj = {property1: ''};
   var paciente = "paciente";
   var listapacientes = [
@@ -108,40 +113,34 @@
       edad: 65
     }
   ];
+
+
   window.onload=inicio();
+  /*Carga los botones*/
   function inicio(){
-
-
     for(var i=0 ; i < listapacientes.length ; i++){
       paciente = listapacientes[i]["name"]
-      var listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
+      listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
       idArray[i] = "list-home-list"+i;
-
       document.getElementById("list-tab").innerHTML+=listtext;
     }
-    //alert(idArray);
-    //alert(idArray[i][0]);
-
+    savetext = ``  
+    document.getElementById("boton-report").innerHTML+=savetext;
   }
 
 
   /*Función llamada al hacer click en un paciente*/
   function infobox(id){
-    //document.getElementById("list-home-list${i}")
-    //alert(id)
-    
-    document.getElementById("cardName").innerHTML=`${listapacientes[i]["name"]}`;
-    document.getElementById("cardCaract").innerHTML=`${listapacientes[i]["caracteristica_principal"]}`;
-    document.getElementById("cardEdad").innerHTML=`${listapacientes[i]["edad"]}`;
+    numId = Number(id.substr(14));
+    document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
+    document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
+    document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;
   }
-
+function saveReport(id){
+    alert("reporte de paciente con id " + numId + " guardado (habilitado cuando se construya base de datos)");
+}
 
 </script>
 
 {% endblock %}
 
-
-for (var i = 0; i < 9; i++) {
-  n += i;
-  mifuncion(n);
-}
