@@ -120,7 +120,7 @@ def minimo (data, arcos, demanda_total):
                     minimo = (data['distance_matrix'][arco_posible[1]][i])
                     solucion = (arco_posible[1] ,i)
                     demanda_camino = data['demands'][i]
-    print (solucion, demanda_camino)
+    #print (solucion, demanda_camino)
     return solucion, demanda_camino
                               
 
@@ -136,12 +136,60 @@ def vecinoMasCercano(data):
         arcos.append(conexion_nueva)
         demanda_total.append(nueva_demanda)
         #Agregar la distancia de cada conexion tambien es una buena idea
-    print ("Arcos presentes en la solucion: ", arcos)
-    print ("Cantidad de carga de cada arco: ", demanda_total)
+    return arcos
+
+
+def imprimirCamino(data, arcos):
+    camino = []
+    numero = 1
+
+    #Formatear el camino en una lista de facil lectura
+    for vehiculo in range(data['num_vehicles']):
+        indice = 0
+        camino.append(indice)
+        for i in range (len(arcos)):
+            if (indice in arcos[i]) and not (arcos[i][1] in camino):
+                camino.append(arcos[i][1])
+                indice = arcos[i][1]
+
+    #dejar todo el camino en la variable output
+    output = ''
+    for i in range(len(camino)):
+        if (camino[i] == 0):
+            output += "\n\n La ruta para el vehiculo {} :\n 0 ".format(numero)
+            numero += 1 
+        else:
+            output += "-> {} ".format(camino[i])
+    print (output)
     
 def main():
     data = create_data_model()
 
-    vecinoMasCercano(data)
+    arcos = vecinoMasCercano(data)
 
+    imprimirCamino (data, arcos)
+    
 main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
