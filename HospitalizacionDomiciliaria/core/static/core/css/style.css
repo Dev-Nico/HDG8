@@ -1,7 +1,148 @@
 .imglogo{
-    max-width: 90%
+    max-width: 90%;
 }
 
 .navbar-brand{
-    max-width: 90%
+    max-width: 90%;
+}
+body{
+    max-width: 98%;
+}
+
+/*================
+    Home
+  ================*/
+.nav-item{
+    text-transform: capitalize;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 0;
+    padding: .15rem 1rem;
+    border-radius: 1px;
+    transition: background-color 0.4s ease-out;
+}
+.nav-item:hover{
+    text-decoration-line: underline;
+    background-color: rgb(245, 245, 255);
+}
+
+
+/*================
+    Home
+  ================*/
+#titulo-home-page{
+    font-family: 'Abel', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    width: 90%;
+    margin: 50px auto;
+
+}
+
+/*================
+    Reportes
+  ================*/
+
+/* Izquierda*/
+#columna-izquierda{
+    position: relative;
+    
+}
+
+.scrolllist {
+    max-height:750px;
+    overflow-y: scroll;
+}
+
+
+
+/* Derecha*/
+#columna-derecha{
+    width: 50%;
+    margin: 0px;
+    /* background: yellowgreen; */
+    padding: 0px;
+}
+#guardar-reporte{
+    margin-top: 2px;
+}
+#boton-paciente{
+    margin-top: 2px;
+    margin-left: 3px;
+}
+
+#list-home{
+    padding: 0px;
+    margin: 0px; 
+}
+
+#nav-tabContent{
+    padding: 0px;
+    margin: 0px; 
+}
+
+@media (min-width: 930px){
+
+    #list-home{
+        width: 100%;
+
+    }
+}
+
+
+
+/* Pantalla Celular*/
+@media (max-width: 929px){
+    body{
+        /* background: green; */
+        background: rgb(238, 234, 215);
+    }
+
+    /* Arriba (Izquierda en pantalla grande) */
+    .col-4 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    /* Lista de Pacientes*/
+    #boton-paciente{
+        margin-top: 2px;
+        margin-left: 2%;
+        text-align: center
+    }
+    .scrolllist {
+        max-height:800px;
+        overflow-y: scroll;
+    }
+
+    /* Abajo (Derecha en pantalla grande) */
+    .col-8 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    /* Cuadro de Texto */
+    #exampleFormControlTextarea1{
+        margin: 2%;
+        width: 95%;
+    }
+    #nav-tabContent{
+        padding-left: 3px;
+        margin-left: 3px;
+    }
+    #list-home{
+        padding-left: 3px;
+        margin-left: 3px;
+    }
+    /*Botón Guardar Reporte*/
+    #guardar-reporte{
+        margin: 2%;
+        padding: 1%;
+        text-align: center
+    }
+    /* Información General del Paciente*/
+    .card-group{
+        margin: 15%;
+        width: 70%;
+        text-align: center
+    }
 }

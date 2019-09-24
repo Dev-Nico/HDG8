@@ -11,8 +11,8 @@
 <div class="row">
 
   <!--Columna Izquierda-->
-  <div class="col-4">
-    <div class="list-group" id="list-tab" role="tablist">
+  <div class="col-4 scrolllist" id="columna-izquierda">
+    <div class="list-group" id="list-tab" role="tablist" >
       <!--
         Lista generada en js dinamicamente
       -->
@@ -20,26 +20,26 @@
   </div>
 
   <!--Columna Derecha-->
-  <div class="col-8">
+  <div  class="col-8" id="columna-derecha">
     <div class="tab-content" id="nav-tabContent">
       <!--Cuadro de Texto-->
-      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+      <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="list-home-list" id="list-home">
+        <textarea class="form-control" rows="10" id="exampleFormControlTextarea1"></textarea>
       </div>
       <!--Boton Guardar Reporte-->
       <div id="boton-report">
 
-        <div style="margin:2px"><a class="list-group-item list-group-item-action active" id="save-report" onclick=saveReport() data-toggle="list" href="#list-home" role="tab" aria-controls="home">Guardar Reporte</a></div>
+        <div id="guardar-reporte"><a class="list-group-item list-group-item-action active" onclick=saveReport() data-toggle="list" href="#list-home" role="tab" aria-controls="home" id="save-report">Guardar Reporte</a></div>
 
       </div>
       <br>
-      <!--Info General-->
+      <!--Info General del Paciente-->
       <div class="card-group">
         <div class="card bg-light mb-3">
           <div class="card-header">Nombre</div>
           <div class="card-body">
             <h5 id="cardName" class="card-title"></h5>
-            <p class="card-text">dirección x comuna san bernardo.</p>
+            <p class="card-text">dirección X comuna san bernardo.</p>
           </div>
         </div>
         <div class="card bg-light mb-3">
@@ -112,12 +112,10 @@
   function inicio(){
     for(var i=0 ; i < listapacientes.length ; i++){
       paciente = listapacientes[i]["name"]
-      listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
-      //idArray[i] = "list-home-list"+i;
+      listtext = `<div id="boton-paciente"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
       document.getElementById("list-tab").innerHTML+=listtext;
     }
-    //savetext = ``  
-    //document.getElementById("boton-report").innerHTML+=savetext;
+
   }
 
 
