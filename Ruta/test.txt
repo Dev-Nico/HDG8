@@ -1,9 +1,0 @@
-
-La ruta para el vehiculo 1:
-0 -> 7 -> 13 -> 12 -> 11
-La ruta para el vehiculo 2:
-0 -> 9 -> 5 -> 8 -> 6
-La ruta para el vehiculo 3:
-0 -> 14 -> 16 -> 10 -> 2
-La ruta para el vehiculo 4:
-0 -> 1 -> 4 -> 3 -> 15
