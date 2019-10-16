@@ -1,6 +1,8 @@
 ﻿# Hospitalización domiliciaria grupo 8
 ## Proyecto de Ingeniería de Software 1 y 2
 
+### Actualmente trabajando en rama "hito2"
+
 ### Integrantes
 * Francisco Covarrubias
 * Jose Martinez
