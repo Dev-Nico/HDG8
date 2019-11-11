@@ -17,11 +17,13 @@ h2 {
 }
 
 .base-body{
-    background-color: #E8FAFC;
+    background-color: #EEEEEE;
 }
 
 .base-nav{
-    background-color: #243547;
+    background-color: #1e1f26;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+
 }
 
 .box-position{
@@ -36,7 +38,7 @@ h2 {
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #e9faff;
+    background: #EEEEEE;
 }
 
 .box-parameters {
@@ -91,7 +93,7 @@ h2 {
 }
   
 #myUL li a:hover:not(.header) {
-    background-color: #243547;
+    background-color: #1e1f26;
     color: #f8f9fa;
 }
 
@@ -104,6 +106,216 @@ h2 {
 }
 
 .save-button:hover:not(.header) {
-    background-color: #243547;
+    background-color: #1e1f26;
     color: #f8f9fa;
 }
+/***************************************************************************/
+/**************************Calendario***************************************/
+/***************************************************************************
+
+@media screen and (min-width: 30em){
+    #calendar {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: perspective(1px) translateZ(0) translate(-50%, -50%);
+        transform: perspective(1px) translateZ(0) translate(-50%, -50%);
+        width: 30em;
+    }
+}
+#calendar {
+    min-width: 16.25em;
+    box-shadow: 0px 0px 8px 0px rgba(44, 62, 80, 0.4);
+    background: #fff;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+main {
+    display: block;
+}
+html, body {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    color: #ecf0f1;
+    font-family: "Source Sans Pro";
+    background: #eee;
+}
+body {
+    line-height: 1;
+}
+.header {
+    height: 6em;
+    width: 100%;
+    display: table;
+    background: #4aa3df;
+}
+.arrow--left {
+    text-align: right;
+}
+.header__arrow {
+    height: auto;
+    width: 15%;
+}
+.header__main-date, .header__arrow {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.arrow__circle {
+    display: inline-block;
+    position: relative;
+    height: 2em;
+    width: 2em;
+    background: #ecf0f1;
+    background: #ecf0f1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.arrow__arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+.arrow--left .arrow__pipe {
+    float: right;
+}
+.arrow__pipe {
+    height: 0.375em;
+    width: 0.5em;
+    margin: 0.3125em 0 0;
+    background: #2980b9;
+}
+.arrow--left .arrow__triangle {
+    float: right;
+    height: 0;
+    width: 0;
+    border-bottom: 0.5em solid transparent;
+    border-right: 0.5em solid #2980b9;
+    border-top: 0.5em solid transparent;
+}
+.header__main-date, .header__arrow {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.main-date__container {
+    height: auto;
+    width: 70%;
+    margin: 0 auto;
+}
+.day__month__wrapper {
+    display: inline-block;
+}
+.main-date__container__month, .main-date__container__year {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    display: block;
+}
+.arrow--right {
+    text-align: left;
+}
+.header__arrow {
+    height: auto;
+    width: 15%;
+}
+.header__main-date, .header__arrow {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.arrow__circle {
+    display: inline-block;
+    position: relative;
+    height: 2em;
+    width: 2em;
+    background: #ecf0f1;
+    background: #ecf0f1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.arrow__arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+.arrow--right .arrow__pipe {
+    float: left;
+}
+.arrow__pipe {
+    height: 0.375em;
+    width: 0.5em;
+    margin: 0.3125em 0 0;
+    background: #2980b9;
+}
+.arrow--right .arrow__triangle {
+    float: left;
+    height: 0;
+    width: 0;
+    border-bottom: 0.5em solid transparent;
+    border-left: 0.5em solid #2980b9;
+    border-top: 0.5em solid transparent;
+}
+.days {
+    height: 2.5em;
+    width: 100%;
+    display: table;
+    text-align: center;
+    background: #2ecc71;
+}
+.days__day {
+    height: auto;
+    width: 14.28571%;
+    display: table-cell;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+.daysgrid {
+    color: #2c3e50;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+.daysgrid {
+    color: #2c3e50;
+}
+.daysgrid__day {
+    display: table;
+    height: 3em;
+    width: 14.28571%;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+}
+.day__status {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    bottom: 0;
+    left: 10%;
+    height: 0.625em;
+    width: 0.625em;
+    border-radius: 50%;
+    background: none;
+}
+.day__number {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+

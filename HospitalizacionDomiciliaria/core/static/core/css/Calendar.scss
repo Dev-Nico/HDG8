@@ -1,0 +1,252 @@
+@import bourbon
+@import neat
+  
+$peterRiver: #4aa3df
+$wetAsphalt: #34495e
+$belizaHole: #2980b9
+$midnightBlue: #2c3e50
+$clouds: #ecf0f1
+$silver: #bdc3c7
+$alzarin: #e74c3c
+$emerald: #2ecc71
+
+html,
+body
+  +size(100vw 100vh)
+  max-width: 100%
+  color: $clouds
+  font-family: "Source Sans Pro"
+  background: #eee
+
+#calendar
+  min-width: em(260)
+  box-shadow: 0px 0px 8px 0px rgba($midnightBlue, 0.4)
+  background: #fff
+
+// ==================
+// HEADER
+// ==================
+
+.header
+  +size(100% 6em)
+  +display(table)
+  background: $peterRiver
+
+.header__main-date,
+.header__arrow,
+  +display(table-cell)
+  text-align: center
+  vertical-align: middle
+
+.header__arrow
+  +size(15% auto)
+  
+.main-date__container
+  +size(70% auto)
+  +margin(0 auto)
+  +clearfix
+
+.main-date__container__day
+  font-size: modular-scale(4)
+  display: inline-block
+
+.day__month__wrapper
+  display: inline-block
+
+.main-date__container__month,
+.main-date__container__year
+  font-size: 1.2em
+  text-transform: uppercase
+  display: block
+
+.arrow__arrow
+  +clearfix
+  +position(absolute, 50% null null 50%)
+  +transform(translate3d(-50%, -50%, 0))
+  
+.arrow--left
+  text-align: right
+  
+.arrow--right
+  text-align: left
+  
+.arrow__circle
+  +display(inline-block)
+  +position(relative)
+  +size(2em 2em)
+  +background($clouds)
+  cursor: pointer
+  border-radius: 50%
+  
+.arrow__pipe
+  +size(em(8) em(6))
+  +margin(em(5) 0 0 0)
+  background: $belizaHole
+  
+.arrow--left
+  .arrow__pipe
+    float: right
+  .arrow__triangle
+    float: right
+    +triangle(em(16), $belizaHole, left)
+      
+.arrow--right
+  .arrow__pipe
+    float: left
+  .arrow__triangle
+    float: left
+    +triangle(em(16), $belizaHole, right)
+
+      
+// ==================
+//  DAY NAMES ROW
+// ==================
+
+.days
+  +size(100% 2.5em)
+  +display(table)
+  text-align: center
+  background: $emerald
+
+.days__day
+  +size(14.28571% auto)
+  display: table-cell
+  vertical-align: middle
+  text-transform: capitalize
+  
+      
+// ===================
+// DAYS GRID
+// ===================
+
+.daysgrid
+  color: $midnightBlue
+
+.daysgrid__week
+  +clearfix
+
+.daysgrid__day
+  +display(table)
+  +size(14.28571% 3em)
+  +position(relative)
+  float: left
+  cursor: pointer
+  text-align: center
+
+.day__number
+  +display(table-cell)
+  vertical-align: middle
+
+.day__status
+  +position(absolute, 10% 0 0 10%)
+  +size(em(10) em(10))
+  border-radius: 50%
+  background: none
+  
+.daysgrid__day--today
+  &:after
+    content: ""
+    +position(absolute, 50% null null 50%)
+    +transform(translate3d(-50%, -50%, 0))
+    +size(2em 2em)
+    border-radius: 50%
+    z-index: -1
+    background: rgba($silver, 0.3)
+  
+.daysgrid__tasks
+  +clearfix
+  position: relative
+  width: 100%
+  min-height: 6em
+  background: $clouds
+  box-shadow: inset 0px 0px 1px 0px rgba($midnightBlue, 0.1)
+  
+  input[type="text"]
+    +size(70% null)
+    +margin(0.5em 15%)
+    +display(block)
+    +position(relative, null null 1em null)
+    +padding(0.5em)
+    font-size: modular-scale(0)
+    border: 0
+    outline: 0
+    background: none
+    border-bottom: 2px solid $silver
+    
+  ul
+    list-tyle: none
+    width: 80%
+    margin: 0 auto
+    padding: 1em 0
+    
+    li
+      +clearfix
+      position: relative
+      display: block
+      
+      font-size: modular-scale(0)
+      padding: 0.1em
+      color: $wetAsphalt
+      
+      label
+        width: 80%
+        display: inline-block
+        float: left
+      
+      input[type="checkbox"]
+        position: relative
+        display: inline-block
+        float: left
+
+.btn
+  position: relative
+  padding: 0.7em
+  font-size: modular-scale(-1)
+  background: none
+  border: 0
+  cursor: pointer
+  opacity: 0.6
+  float: right
+
+  &:hover
+    opacity: 1
+    
+.cross
+  position: relative
+  display: block
+  
+  &:after, &:before
+    content: ""
+    position: absolute
+    +size(15px 1px)
+    left: -8px
+    background: $midnightBlue
+    
+  &:after
+    +transform(rotate(45deg))
+  
+  &:before
+    +transform(rotate(-45deg))
+  
+.day__status--taskopen
+  &:after
+    content: ""
+    +display(block)
+    +position(absolute, null null 0 50%)
+    +transform(translateX(-50%))
+    +triangle(em(12px), $clouds, up)
+
+.day__status--done
+  background: $emerald
+.day__status--undone
+  background: $alzarin
+
+// =============
+// TASKS
+// =============
+
+#calendar
+  +media(min-width em(480), 12)
+    +position(absolute, 50% null null 50%)
+    +transform(perspective(1px) translateZ(0) translate(-50%, -50%))
+    width: em(480)
