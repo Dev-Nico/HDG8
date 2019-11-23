@@ -9,11 +9,15 @@ L.Routing.control({
         L.latLng(-33.561048, -70.506516),
         L.latLng(-33.161048, -70.806516),
         L.latLng(-33.521048, -70.406516),
-    */],
-    geocoder: L.Control.Geocoder.nominatim(),
+	*/],
+	router:true,
+    /*geocoder: L.Control.Geocoder.nominatim(),/*
 	routeWhileDragging: true,
-	reverseWaypoints: true,
-	showAlternatives: true,
+	/*reverseWaypoints: true,*/
+	/*showAlternatives: true,*/
+	waypointMode: connect,
+	autoRoute: true,
+	useZoomParameter:true,
 	altLineOptions: {
 		styles: [
 			{color: 'black', opacity: 0.15, weight: 9},
