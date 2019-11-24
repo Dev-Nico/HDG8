@@ -16,7 +16,7 @@ class Datos_Personales(models.Model):
 #     Region = models.CharField(max_length=20)
 
 class Usuario(models.Model):
-    idDatos = models.ForeignKey(Datos_Personales, on_delete=models.CASCADE)
+    idDatos = models.ForeignKey(Datos_Personales, on_delete=models.CASCADE, unique=True)
     Username = models.CharField(max_length=20)
     Contraseña = models.CharField(max_length=20)
     Tipo_Usuario = models.IntegerField()
@@ -32,8 +32,8 @@ class Paciente(models.Model):
     Estado = models.CharField(max_length=45)
 
 class Ruta(models.Model):
-    Hora_Inicio = models.DateField()
-    Hora_Termino = models.DateField()
+    Hora_Inicio = models.TimeField()
+    Hora_Termino = models.TimeField()
     Fecha = models.DateField()
     
 class Visita(models.Model):
