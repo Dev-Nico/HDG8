@@ -7,7 +7,6 @@ from django.urls import reverse_lazy
 from django import forms
 
 from .forms import FuncionarioForm, PacienteForm
-from .models import RegistroFuncionarioForm, RegistroPacienteForm
 from core.models import Datos_Personales, Usuario 
 
 # Create your views here.
@@ -22,7 +21,7 @@ class RegistroFuncionarioView(staff_member_required,CreateView):
     success_url = reverse_lazy('usuarios')
 
 class RegistroPacienteView(staff_member_required,CreateView):
-    model = RegistroPacienteForm
+    model = Usuario
     form_class = PacienteForm
     template_name = 'registration/registroPaciente.html'
     success_url = reverse_lazy('usuarios')
