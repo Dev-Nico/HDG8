@@ -83,17 +83,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'HospitalDB',
         'USER':'root',
-        'PASSWORD':'papcjmns',
-        'HOST':'localhost',
+        'PASSWORD':'',
+        'HOST':'127.0.0.1',
 
         # 'USER' : 'icf',
         # 'PASSWORD' : 'Secret.123',
         'DEFAULT-CHARACTER-SET' : 'utf8',
         # 'HOST' : '127.0.0.1',
         # 'PORT' : '3306',
-        'TEST': {
-            'NAME': 'planificacion_test',
-        }
+        #'TEST': {
+        #    'NAME': 'planificacion_test',
+        #}
     },
 }
 

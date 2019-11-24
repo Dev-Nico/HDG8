@@ -8,14 +8,15 @@ from django import forms
 
 from .forms import FuncionarioForm, PacienteForm
 from .models import RegistroFuncionarioForm, RegistroPacienteForm
+from core.models import Datos_Personales, Usuario 
 
 # Create your views here.
 class UsuariosPageView(staff_member_required,TemplateView):
     template_name = "registration/usuarios.html"
     
 
-class RegistroView(staff_member_required,CreateView):
-    model = RegistroFuncionarioForm
+class RegistroFuncionarioView(staff_member_required,CreateView):
+    model = Datos_Personales
     form_class = FuncionarioForm
     template_name = 'registration/registro.html'
     success_url = reverse_lazy('usuarios')
