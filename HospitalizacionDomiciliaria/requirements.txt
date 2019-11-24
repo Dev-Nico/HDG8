@@ -1,0 +1,8 @@
+django
+djangorestframework
+gunicorn
+mysqlclient
+coverage
+django-heroku
+django-cors-headers
+Pillow

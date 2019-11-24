@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  server:
+    image: servicio
+    links:
+      - dbserver
+    ports:
+      - "80:80"
+
+  dbserver:
+    image: testdb
+
+networks:
+    default:
+        external:
+            name: br0
