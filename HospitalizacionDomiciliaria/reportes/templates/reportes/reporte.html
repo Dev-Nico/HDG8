@@ -8,8 +8,7 @@
             <form action="" method="POST"> {% csrf_token %}
                 <h2 class="text-centered">Agregar reporte</h2>
                 <br>
-                <!-- {{form.as_p}} -->
-                {{ form }}
+                {{form.as_p}}
                 <!-- <textarea class="form-control" id="report-form" rows="3"></textarea> -->
 
                 <p><input class="nav-link btn save-button btn-block" type="submit" value="Confirmar"></p>

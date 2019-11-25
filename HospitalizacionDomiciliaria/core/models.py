@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -39,11 +40,11 @@ class Ruta(models.Model):
 class Visita(models.Model):
     idPaciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
     idRuta = models.ForeignKey(Ruta, on_delete=models.CASCADE)
-    Horario_Visita = models.DateField()
+    Horario_Visita = models.TimeField()
     Presencia = models.BooleanField(default=False)
-    Dia_Visitado = models.DateField()
+    Dia_Visitado = models.DateField(default=now)
     Reporte = models.CharField(max_length=800)
-    Fotos_Heridas = models.ImageField(upload_to='media/images/visita')
+    Fotos_Heridas = models.ImageField(upload_to='media/images/visita',blank=True,null=True)
     Secuencia = models.IntegerField()
 
 class Calendario(models.Model):
