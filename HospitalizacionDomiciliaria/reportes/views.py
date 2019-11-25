@@ -6,29 +6,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django import forms
 
-from .forms import DatosPersonalesForm, RegistroUsuarioForm, ReporteFuncionarioForm
-from core.models import Datos_Personales, Usuario 
-from .models import ReporteFuncionario
+from .forms import ReporteFuncionarioForm
+from core.models import Datos_Personales, Usuario, Visita
 
 # Create your views here.
 class ReportesPageView(staff_member_required,TemplateView):
     template_name = "reportes/reportes.html"
-    
 
-class RegistroPageView(staff_member_required,CreateView):
-    model = Datos_Personales
-    form_class = DatosPersonalesForm
-    template_name = 'registration/registro.html'
-    success_url = reverse_lazy('usuarios')
-
-class RegistroUsuarioView(staff_member_required,CreateView):
-    model = Usuario
-    form_class = RegistroUsuarioForm
-    template_name = 'registration/registroPaciente.html'
-    success_url = reverse_lazy('usuarios')
 
 class ReportePageView(staff_member_required,CreateView):
-	model = ReporteFuncionario
+	model = Visita
 	form_class = ReporteFuncionarioForm
 	template_name = 'reportes/reporte.html'
 	success_url = reverse_lazy('reportes')
