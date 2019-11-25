@@ -46,8 +46,8 @@
       <!--Boton Guardar Visita-->
       <div id="boton-report">
         <center>
-        <div style="text-align:center;width:200px"><a class="list-group-item list-group-item-action active " id="save-visit" onclick=saveVisit() data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agendar Visita</a></div>
-      </center>
+          <div style="text-align:center;width:200px"><a class="list-group-item list-group-item-action active " id="save-visit" onclick=saveVisit() data-toggle="list" href="#list-home" role="tab" aria-controls="home">Agendar Visita</a></div>
+        </center>
       </div>
       <br>
       <!--Info General-->
@@ -73,11 +73,6 @@
             <p class="card-text"></p>
           </div>
 
-          {% for Datos_Personales in Datos %}
-            <p>{{ Datos_Personales.Primer_Nombre }}</p>
-          {% empty %}
-            <p>No Data available</p>
-          {% endfor %}
 
         </div>
       </div>
@@ -169,7 +164,7 @@
   /*Función llamada al hacer click en un paciente*/
   function infobox(id){
     numId = Number(id.substr(14));
-    document.getElementById("cardName").innerHTML=`${{}}`;
+    document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
     document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
     document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;
     document.getElemntByID("idDia").innerHTML="";
