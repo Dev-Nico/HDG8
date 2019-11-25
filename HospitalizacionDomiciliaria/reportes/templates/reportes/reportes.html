@@ -32,7 +32,10 @@
             <br>
             <textarea class="form-control" id="report-form" rows="3"></textarea>
             <br>
-            <button type="button" class="btn save-button btn-block" onclick=saveReport()>Guardar Reporte</button> 
+            <button type="submit" class="btn save-button btn-block">Guardar Reporte</button>
+            <!--
+            <button type="button" class="btn save-button btn-block" onclick=saveReport()>Guardar Reporte</button>
+             -->
             <br>
             <br>
             <button type="button" class="btn btn-link" onclick="changeDiv()">Volver a la selección de paciente.</button>
@@ -87,8 +90,8 @@
         for(var i=0 ; i < listapacientes.length ; i++){
             paciente = listapacientes[i]["name"]
             listtext = `
-            <li id="list-home-list${i}"  onclick=infobox(id)>
-                <a class="text-centered">${paciente}</a>
+            <li id="list-home-list${i}"  >
+                <a class="text-centered" href= "{% url 'reporte' %}">${paciente}</a>
             </li>
             `;
             document.getElementById("myUL").innerHTML+=listtext;
@@ -106,6 +109,8 @@
     function saveReport(id){
         alert("reporte de paciente  " + listapacientes[numId]["name"] + " guardado (habilitado cuando se construya base de datos)");
         document.getElementById('report-form').value = "";
+
+
     }
     /* Buscador */
     function searchInList() {
