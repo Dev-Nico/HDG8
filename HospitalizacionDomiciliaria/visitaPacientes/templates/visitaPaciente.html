@@ -73,6 +73,11 @@
             <p class="card-text"></p>
           </div>
 
+          {% for Datos_Personales in Datos %}
+            <p>{{ Datos_Personales.Primer_Nombre }}</p>
+          {% empty %}
+            <p>No Data available</p>
+          {% endfor %}
 
         </div>
       </div>
