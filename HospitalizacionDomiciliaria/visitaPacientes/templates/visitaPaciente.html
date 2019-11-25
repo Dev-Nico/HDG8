@@ -16,6 +16,19 @@
       <!--
         Lista generada en js dinamicamente
       -->
+
+      {% for Datos_Personales in Datos %}
+
+        <div style="margin:2px">
+          <a class="list-group-item list-group-item-action active" onclick=infobox(id) 
+          data-toggle="list" href="#list-home" role="tab" aria-controls="home">{{ Datos_Personales.Primer_Nombre }}</a>
+        </div>
+
+
+      {% empty %}
+        <p>No Data available</p>
+      {% endfor %}
+
     </div>
   </div>
 
@@ -72,13 +85,6 @@
             <h5 id="cardEdad" class="card-title"></h5>
             <p class="card-text"></p>
           </div>
-
-          {% for Datos_Personales in Datos %}
-            <p>{{ Datos_Personales.Primer_Nombre }}</p>
-          {% empty %}
-            <p>No Data available</p>
-          {% endfor %}
-
         </div>
       </div>
     </div>
@@ -122,60 +128,61 @@
   numId = 0;
   var obj = {property1: ''};
   var paciente = "paciente";
-  var listapacientes = [
-    {
-      name: 'Paciente 1',
-      caracteristica_principal: 'Enfermedad cardiaca',
-      edad: 35
-    },
-    {
-      name: 'Paciente 2',
-      caracteristica_principal: 'Diabetes',
-      edad: 60
-    },
-    {
-      name: 'Paciente 3',
-      caracteristica_principal: 'Parkinson',
-      edad: 76
-    },
-    {
-      name: 'Paciente 4',
-      caracteristica_principal: 'Alzhaimer',
-      edad: 58
-    },
-    {
-      name: 'Paciente 5',
-      caracteristica_principal: 'Atropellado',
-      edad: 41
-    },
-    {
-      name: 'Paciente 6',
-      caracteristica_principal: 'Riñon',
-      edad: 65
-    }
-  ];
+  // var listapacientes = [
+  //   {
+  //     name: 'Paciente 1',
+  //     caracteristica_principal: 'Enfermedad cardiaca',
+  //     edad: 35
+  //   },
+  //   {
+  //     name: 'Paciente 2',
+  //     caracteristica_principal: 'Diabetes',
+  //     edad: 60
+  //   },
+  //   {
+  //     name: 'Paciente 3',
+  //     caracteristica_principal: 'Parkinson',
+  //     edad: 76
+  //   },
+  //   {
+  //     name: 'Paciente 4',
+  //     caracteristica_principal: 'Alzhaimer',
+  //     edad: 58
+  //   },
+  //   {
+  //     name: 'Paciente 5',
+  //     caracteristica_principal: 'Atropellado',
+  //     edad: 41
+  //   },
+  //   {
+  //     name: 'Paciente 6',
+  //     caracteristica_principal: 'Riñon',
+  //     edad: 65
+  //   }
+  // ];
   window.onload=inicio();
   /*Carga los botones*/
   function inicio(){
-    for(var i=0 ; i < listapacientes.length ; i++){
-      paciente = listapacientes[i]["name"]
-      listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
+    //for(var i=0 ; i < listapacientes.length ; i++){
+      //paciente = listapacientes[i]["name"]
+      //listtext = `<div style="margin:2px"><a class="list-group-item list-group-item-action active" id="list-home-list${i}" onclick=infobox(id) data-toggle="list" href="#list-home" role="tab" aria-controls="home">${paciente}</a></div>`;
       //idArray[i] = "list-home-list"+i;
-      document.getElementById("list-tab").innerHTML+=listtext;
-    }
+      //document.getElementById("list-tab").innerHTML+=listtext;
+    //}
     //savetext = ``  
     //document.getElementById("boton-report").innerHTML+=savetext;
   }
   /*Función llamada al hacer click en un paciente*/
   function infobox(id){
-    numId = Number(id.substr(14));
-    document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
-    document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
-    document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;
-    document.getElemntByID("idDia").innerHTML="";
+    console.log(id);
+    // numId = Number(id.substr(14));
+    // document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
+    // document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
+    // document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;
+    // document.getElemntByID("idDia").innerHTML="";
   }
 function saveVisit(id){
-    alert("visita de paciente " + listapacientes[numId]["name"] + " guardado (habilitado cuando se construya base de datos)");
+    //alert("visita de paciente " + listapacientes[numId]["name"] + " guardado (habilitado cuando se construya base de datos)");
   
 }
 /******************************************************************/
