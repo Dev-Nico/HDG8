@@ -59,7 +59,9 @@ ROOT_URLCONF = 'HospitalizacionDomiciliaria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, "templates"),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,15 +87,7 @@ DATABASES = {
         'USER':'root',
         'PASSWORD':'',
         'HOST':'127.0.0.1',
-
-        # 'USER' : 'icf',
-        # 'PASSWORD' : 'Secret.123',
         'DEFAULT-CHARACTER-SET' : 'utf8',
-        # 'HOST' : '127.0.0.1',
-        # 'PORT' : '3306',
-        #'TEST': {
-        #    'NAME': 'planificacion_test',
-        #}
     },
 }
 

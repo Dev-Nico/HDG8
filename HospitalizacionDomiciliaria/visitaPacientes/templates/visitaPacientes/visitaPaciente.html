@@ -72,6 +72,13 @@
             <h5 id="cardEdad" class="card-title"></h5>
             <p class="card-text"></p>
           </div>
+
+          {% for Datos_Personales in Datos %}
+            <p>{{ Datos_Personales.Primer_Nombre }}</p>
+          {% empty %}
+            <p>No Data available</p>
+          {% endfor %}
+
         </div>
       </div>
     </div>
@@ -162,7 +169,7 @@
   /*Función llamada al hacer click en un paciente*/
   function infobox(id){
     numId = Number(id.substr(14));
-    document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
+    document.getElementById("cardName").innerHTML=`${{}}`;
     document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
     document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;
     document.getElemntByID("idDia").innerHTML="";

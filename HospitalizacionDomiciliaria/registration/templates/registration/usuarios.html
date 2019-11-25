@@ -1,8 +1,19 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-<ul class="nav-item">
-        <a class="nav-link text-dark" href="{% url 'registroDatosPersonales' %}">Registro Datos Personales</a>
-        <a class="nav-link text-dark" href="{% url 'registroUsuario' %}">Registro Usuario</a>
-</ul>
+
+<div id="list-div" class="limiter"> <!-- width 100%   margin 0 auto   -->
+        <div class="box-position">
+                <div class="box-parameters">
+                <br>
+                <ul class="nav-item">
+                        <a class="nav-link btn save-button btn-block" href="{% url 'registroDatosPersonales' %}">Registro Datos Personales</a>
+                        <a class="nav-link btn save-button btn-block" href="{% url 'registroUsuario' %}">Registro Usuario</a>
+                </ul>
+                <br>
+                </div>
+        </div>
+</div>
+
+
 {% endblock %}

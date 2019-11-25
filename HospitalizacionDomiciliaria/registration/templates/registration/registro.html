@@ -1,11 +1,16 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+<div id="list-div" class="limiter"> <!-- width 100%   margin 0 auto   -->
+    <div class="box-position">
+            <div class="box-parameters">
+            <br>
+            <form action="" method="POST"> {% csrf_token %}
 
-<form action="" method="POST"> {% csrf_token %}
-
-    {{form.as_p}}
-    <p><input type="submit" value="Confirmar"></p>
-</form>
-
+                {{form.as_p}}
+                <p><input class="nav-link btn save-button btn-block" type="submit" value="Confirmar"></p>
+            </form>
+            <br>
+            </div>
+    </div>
 {% endblock %}
