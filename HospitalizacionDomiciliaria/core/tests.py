@@ -5,6 +5,7 @@ from .models import *
 
 class Datos_PersonalesTestCase(TestCase):
 	def setUp(self):
+
 		self.Primer_Nombre = "francisco"
 		self.Segundo_Nombre = "andres"
 		self.Apellido_Paterno = "alvarez"
@@ -26,7 +27,7 @@ class Datos_PersonalesTestCase(TestCase):
 
 class UsuarioTestCase(TestCase):
 	def setUp(self):
-		self.idDatos = Datos_Personales.objects.get(Primer_Nombre=="francisco").id
+		self.idDatos = 1
 		self.Username = "juanito"
 		self.Contraseña = "juanito123"
 		self.Tipo_Usuario = 2
