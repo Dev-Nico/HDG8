@@ -48,20 +48,20 @@ class Visita(models.Model):
     Secuencia = models.IntegerField()
 
 class Calendario(models.Model):
-    IdCuidador = models.ForeignKey(Cuidador, on_delete=models.CASCADE)
+    idCuidador = models.ForeignKey(Cuidador, on_delete=models.CASCADE)
     Proxima_Visita = models.DateField()
 
 class Biblioteca(models.Model):
     ContactoHospital = models.IntegerField()
-    Documento_PDF = models.FileField(upload_to='media/files')
+    Documento_PDF = models.FileField(upload_to='media/files',blank=True,null=True)
 
 class Equipo(models.Model):
-    IdRuta = models.ForeignKey(Ruta, on_delete=models.CASCADE)
-    IdUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    idRuta = models.ForeignKey(Ruta, on_delete=models.CASCADE)
+    idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
 class Ficha_Medica(models.Model):
     idPaciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
-    Foto_Avance_Medico = models.ImageField(upload_to='media/images/ficha-medica')
+    Foto_Avance_Medico = models.ImageField(upload_to='media/images/ficha-medica',blank=True,null=True)
     Historia = models.CharField(max_length=200)
     Insumo = models.CharField(max_length=45)
     Cant_Insumo = models.IntegerField()
