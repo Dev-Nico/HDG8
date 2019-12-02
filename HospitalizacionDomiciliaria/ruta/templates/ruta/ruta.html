@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% load static %}
+    {% load static %}
 
     <meta charset="utf-8" />
     <title>Leaflet OSRM Example</title>
@@ -11,23 +11,167 @@
     <link rel="stylesheet" href="{% static 'ruta/css/leaflet-routing-machine.css' %}" />
     <!--<link rel="stylesheet" href="{% static 'ruta/js/index.js'%}" />-->
     <style>
+
+        /* Lista de rutas con sus respectivos pacientes a la izquierda */
+        #routes {
+            position: absolute;
+            width: 30%;
+            height: 91%;
+            margin-top: -1%;
+        }
+        .indent {
+            margin-left: 5%;
+        }
+        .smallfont {
+            font-size: small;
+        }
+        .parent:hover {
+            background-color: #F5F5F5;
+        }
+
+        /* Mapa a la derecha */
         .map {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 70%;
+            height: 91%;
+            margin-left: 30%;
+            margin-top: -1%;
         }
+
     </style>
 
-<body>
-    <div id="map" class="map"></div>
-    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-    <script src="{% static 'ruta/js/leaflet-routing-machine.js' %}"></script>
-    <script src="{% static 'ruta/js/Control.Geocoder.js' %}"></script>
-    <script src="{% static 'ruta/js/config.js'%}"></script>
-    <!--<script src="{% static 'ruta/js/index.js'%}"></script>-->
-    <!--<script src="{% static 'ruta/js/lrm-valhalla.js'%}"></script>-->
-    <script src="{% static 'ruta/js/mapa.js'%}"></script>
-</body>
+    <body>
+        <div id="map" class="map"></div>
+        <div id="routes">
 
+
+
+            <ul class="list-group">
+                <li class="list-group-item node-treeview1 parent" data-nodeid="0" style="color:undefined;background-color:undefined;">
+                    <span class="icon expand-icon glyphicon glyphicon-minus"></span>
+                    <span class="icon node-icon"></span>Equipo 1</li>
+
+                                <li class="list-group-item node-treeview1 smallfont" data-nodeid="1" style="color:undefined;background-color:undefined;">
+                                    <span class="indent"></span>
+                                    <span class="icon expand-icon glyphicon glyphicon-plus"></span>
+                                    <span class="icon node-icon"></span>    Clark Kent</li>
+
+                                <li class="list-group-item node-treeview1 smallfont" data-nodeid="4" style="color:undefined;background-color:undefined;">
+                                    <span class="indent"></span>
+                                    <span class="icon glyphicon"></span>
+                                    <span class="icon node-icon"></span>    Bruce Wayne</li>
+                                    
+                                <li class="list-group-item node-treeview1 smallfont" data-nodeid="4" style="color:undefined;background-color:undefined;">
+                                    <span class="indent"></span>
+                                    <span class="icon glyphicon"></span>
+                                    <span class="icon node-icon"></span>    Peter Parker</li>
+                        
+                <li class="list-group-item node-treeview1 parent" data-nodeid="5" style="color:undefined;background-color:undefined;">
+                    <span class="icon glyphicon"></span>
+                    <span class="icon node-icon"></span>Equipo 2</li>
+
+                                    <li class="list-group-item node-treeview1 smallfont" data-nodeid="1" style="color:undefined;background-color:undefined;">
+                                        <span class="indent"></span>
+                                        <span class="icon expand-icon glyphicon glyphicon-plus"></span>
+                                        <span class="icon node-icon"></span>    Tony Stark</li>
+
+                                    <li class="list-group-item node-treeview1 smallfont" data-nodeid="4" style="color:undefined;background-color:undefined;">
+                                        <span class="indent"></span>
+                                        <span class="icon glyphicon"></span>
+                                        <span class="icon node-icon"></span>    Bruce Banner</li>
+                                        
+                                    <li class="list-group-item node-treeview1 smallfont" data-nodeid="4" style="color:undefined;background-color:undefined;">
+                                        <span class="indent"></span>
+                                        <span class="icon glyphicon"></span>
+                                        <span class="icon node-icon"></span>    Steve Rogers</li>
+
+                <li class="list-group-item node-treeview1 parent" data-nodeid="6" style="color:undefined;background-color:undefined;">
+                    <span class="icon glyphicon"></span>
+                    <span class="icon node-icon"></span>Equipo 3</li>
+
+                                    <li class="list-group-item node-treeview1 smallfont" data-nodeid="1" style="color:undefined;background-color:undefined;">
+                                        <span class="indent"></span>
+                                        <span class="icon expand-icon glyphicon glyphicon-plus"></span>
+                                        <span class="icon node-icon"></span>    Stephen Strange</li>
+
+                                    <li class="list-group-item node-treeview1 smallfont" data-nodeid="4" style="color:undefined;background-color:undefined;">
+                                        <span class="indent"></span>
+                                        <span class="icon glyphicon"></span>
+                                        <span class="icon node-icon"></span>    I Am Groot</li>
+                                        
+                                    <li class="list-group-item node-treeview1 smallfont" data-nodeid="4" style="color:undefined;background-color:undefined;">
+                                        <span class="indent"></span>
+                                        <span class="icon glyphicon"></span>
+                                        <span class="icon node-icon"></span>    Natasha Romanova</li>
+
+            </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>   <!-- Map logic? -->
+        <script src="{% static 'ruta/js/leaflet-routing-machine.js' %}"></script>
+        <script src="{% static 'ruta/js/Control.Geocoder.js' %}"></script>
+        <script src="{% static 'ruta/js/config.js'%}"></script>
+        <script src="{% static 'ruta/js/index.js'%}"></script> <!-- Routes Imput -->
+        <script src="{% static 'ruta/js/lrm-valhalla.js'%}"></script>
+        <!--<script src="{% static 'ruta/js/mapa.js'%}"></script>-->
+        <!--<script src="{% static 'ruta/js/list-of-routes.js'%}"></script>-->
+
+<!--
+
+        <script>
+ 
+            fetch('/static/ruta/js/routes.json')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+
+            function appendData(data) {
+                var mainContainer = document.getElementById("routes");
+                console.log(mainContainer);
+                for (var i = 0; i < 3; i++) {
+                    var div = document.createElement("div");
+                    div.innerHTML = 'Name: ' + data.Equipo1[i].firstName + ' ' + data.Equipo1[i].lastName;
+                    mainContainer.appendChild(div);
+                }
+                for (var i = 0; i < 3; i++) {
+                    var div = document.createElement("div");
+                    div.innerHTML = 'Name: ' + data.Equipo2[i].firstName + ' ' + data.Equipo2[i].lastName;
+                    mainContainer.appendChild(div);
+                }
+                for (var i = 0; i < 3; i++) {
+                    var div = document.createElement("div");
+                    div.innerHTML = 'Name: ' + data.Equipo3[i].firstName + ' ' + data.Equipo3[i].lastName;
+                    mainContainer.appendChild(div);
+                }
+            }
+        
+        </script>
+-->
+
+
+
+
+
+    </body>
 
 {% endblock %}

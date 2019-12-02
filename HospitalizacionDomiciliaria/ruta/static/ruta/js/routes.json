@@ -1,0 +1,44 @@
+{
+    "Equipo1":[
+        {
+            "firstName": "Clark",
+            "lastName": "Kent"
+        },
+        {
+            "firstName": "Bruce",
+            "lastName": "Wayne"
+        },
+        {
+            "firstName": "Peter",
+            "lastName": "Parker"
+        }
+    ],
+    "Equipo2":[
+        {
+            "firstName": "Tony",
+            "lastName": "Stark"
+        },
+        {
+            "firstName": "Bruce",
+            "lastName": "Banner"
+        },
+        {
+            "firstName": "Steve",
+            "lastName": "Rogers"
+        }
+    ],
+    "Equipo3":[
+        {
+            "firstName": "Stephen",
+            "lastName": "Strange"
+        },
+        {
+            "firstName": "Scot",
+            "lastName": "Lang"
+        },
+        {
+            "firstName": "Natasha",
+            "lastName": "Romanova"
+        }
+    ]
+}
