@@ -3,9 +3,6 @@
 {% block content %}
 
 
-<!--   Codigo en Progreso   -->
-
-
 
 <div id="list-div" class="limiter"> <!-- width 100%   margin 0 auto   -->
     <div class="box-position">
@@ -15,137 +12,33 @@
             <br>
             <input type="text" id="myInput" onkeyup="searchInList()" placeholder="Buscar un nombre..." title="Type in a name">
 
+
             <ul id="myUL">
-                <!--   Lista de pacientes generada dinamicamente con js   -->
+                {% for Usuario in Usuarios %}
+
+
+                <li>
+                    <a class="text-centered" href= "{% url 'reporte' %}">{{ Usuario.Username }}</a>
+                </li>
+
+        
+        
+              {% empty %}
+                <p>No Data available</p>
+              {% endfor %}
             </ul>
+<!--
+            <ul id="myUL">
+-->
+                <!--   Lista de pacientes generada dinamicamente con js   -->
+            
+<!--
+            </ul>
+--> 
             <br>
 
         </div>
     </div>
 </div>
-
-<div id="form-div" class="limiter">
-    <div class="box-position">
-        <div class="box-parameters">
-            <br>
-            <h2 class="text-centered">Agregar reporte</h2>
-            <br>
-            <textarea class="form-control" id="report-form" rows="3"></textarea>
-            <br>
-            <button type="submit" class="btn save-button btn-block">Guardar Reporte</button>
-            <!--
-            <button type="button" class="btn save-button btn-block" onclick=saveReport()>Guardar Reporte</button>
-             -->
-            <br>
-            <br>
-            <button type="button" class="btn btn-link" onclick="changeDiv()">Volver a la selección de paciente.</button>
-        </div>
-    </div>
-</div>
-
-<script>
-    /* Variables */
-    var listtext = "boton lista paciente";
-    var savetext = "boton guarder reporte";
-    var idArray = [];
-    numId = 0;
-    var obj = {property1: ''};
-    var paciente = "paciente";
-    var listapacientes = [
-    {
-      name: 'Paciente 1',
-      caracteristica_principal: 'Enfermedad cardiaca',
-      edad: 35
-    },
-    {
-      name: 'Paciente 2',
-      caracteristica_principal: 'Diabetes',
-      edad: 60
-    },
-    {
-      name: 'Paciente 3',
-      caracteristica_principal: 'Parkinson',
-      edad: 76
-    },
-    {
-      name: 'Paciente 4',
-      caracteristica_principal: 'Alzhaimer',
-      edad: 58
-    },
-    {
-      name: 'Paciente 5',
-      caracteristica_principal: 'Atropellado',
-      edad: 41
-    },
-    {
-      name: 'Paciente 6',
-      caracteristica_principal: 'Riñon',
-      edad: 65
-    }
-  ];
-    window.onload=inicio();
-    /* Carga los botones */
-    function inicio(){
-        hideDiv();
-        for(var i=0 ; i < listapacientes.length ; i++){
-            paciente = listapacientes[i]["name"]
-            listtext = `
-            <li id="list-home-list${i}"  >
-                <a class="text-centered" href= "{% url 'reporte' %}">${paciente}</a>
-            </li>
-            `;
-            document.getElementById("myUL").innerHTML+=listtext;
-        }
-    }
-    /* Función llamada al hacer click en un paciente */
-    function infobox(id){
-        numId = Number(id.substr(14));
-        /*document.getElementById("cardName").innerHTML=`${listapacientes[numId]["name"]}`;
-        document.getElementById("cardCaract").innerHTML=`${listapacientes[numId]["caracteristica_principal"]}`;
-        document.getElementById("cardEdad").innerHTML=`${listapacientes[numId]["edad"]}`;*/
-        changeDiv();
-    }
-    /* Función que guarda el reporte, por ahora solo muestra un ménsaje */
-    function saveReport(id){
-        alert("reporte de paciente  " + listapacientes[numId]["name"] + " guardado (habilitado cuando se construya base de datos)");
-        document.getElementById('report-form').value = "";
-
-
-    }
-    /* Buscador */
-    function searchInList() {
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName("li");
-        for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
-            txtValue = a.textContent || a.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
-            }
-        }
-    }
-    /* Permite tener dos Divs en el mismo lugar, pero no al mismo tiempo */
-    function changeDiv() {
-        var x = document.getElementById("list-div");
-        var y = document.getElementById("form-div");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "none";
-        } else {
-            x.style.display = "none";
-            y.style.display = "block";
-        }
-    }
-    /* Al cargar la página se oculta el Div que muestra el formulario del reporte */
-    function hideDiv() {
-        var y = document.getElementById("form-div");
-        y.style.display = "none";
-    }
-</script>
 
 {% endblock %}

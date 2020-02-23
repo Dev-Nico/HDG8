@@ -7,11 +7,22 @@ from django.urls import reverse_lazy
 from django import forms
 
 from .forms import ReporteFuncionarioForm
-from core.models import Datos_Personales, Usuario, Visita
+from core.models import Datos_Personales, Usuario, Visita 
 
 # Create your views here.
 class ReportesPageView(staff_member_required,TemplateView):
-    template_name = "reportes/reportes.html"
+    model = Usuario
+    template_name = './reportes/reportes.html'
+    def get(self, request):
+        Usuarios = Usuario.objects.all()
+       
+        args = {
+           'Usuarios': Usuarios
+        }
+        return render(request, self.template_name, args)
+
+    def VisitaPacientePageView_view(request):
+        return render(request, "/reportes/reportes.html")
 
 
 class ReportePageView(staff_member_required,CreateView):
