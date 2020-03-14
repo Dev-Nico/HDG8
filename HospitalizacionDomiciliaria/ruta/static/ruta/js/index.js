@@ -1,23 +1,43 @@
-let map = L.map('map').setView([-33.561048,-70.506516],11)
+let map = L.map('map').setView([-33.584491, -70.676733],13)
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-/*
+
+
+
 L.Routing.control({
     waypoints: [
-        L.latLng(57.74, 11.94),
-        L.latLng(57.6792, 11.949)
-    ],
-    routeWhileDragging: true
-}).addTo(map);
-*/
-
-var control = L.Routing.control(L.extend(window.lrmConfig, {
-	waypoints: [
-		L.latLng(-70.654606, -33.439445),
-		L.latLng(-70.64628, -33.446246)
+		L.latLng(-33.574758, -70.675552),
+		L.latLng(-33.575946, -70.668014),
+		L.latLng(-33.582300, -70.689205),
+		L.latLng(-33.561528, -70.676688),
+		L.latLng(-33.565860, -70.671914),
+		L.latLng(-33.560894, -70.657658),
+		L.latLng(-33.571703, -70.665466),
+		L.latLng(-33.576958, -70.690707),
+		L.latLng(-33.591874, -70.671005),
+		L.latLng(-33.597625, -70.690105)
 	],
+	
+
+}).addTo(map);
+console.log("QASAS");
+/*
+var control = L.Routing.control(L.extend(window.lrmConfig, {
+    waypoints: [
+		L.latLng(-33.574758, -70.675552),
+		L.latLng(-33.575946, -70.668014),
+		L.latLng(-33.582300, -70.689205),
+		L.latLng(-33.561528, -70.676688),
+		L.latLng(-33.565860, -70.671914),
+		L.latLng(-33.560894, -70.657658),
+		L.latLng(-33.571703, -70.665466),
+		L.latLng(-33.576958, -70.690707),
+		L.latLng(-33.591874, -70.671005),
+		L.latLng(-33.597625, -70.690105)
+	],
+
 	geocoder: L.Control.Geocoder.nominatim(),
 	routeWhileDragging: true,
 	reverseWaypoints: true,
@@ -30,5 +50,6 @@ var control = L.Routing.control(L.extend(window.lrmConfig, {
 		]
 	}
 })).addTo(map);
+*/
+//L.Routing.errorControl(control).addTo(map);
 
-L.Routing.errorControl(control).addTo(map);

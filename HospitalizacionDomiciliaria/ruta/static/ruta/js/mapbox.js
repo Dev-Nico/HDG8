@@ -6,8 +6,8 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 var control = L.Routing.control({
 	waypoints: [
-		L.latLng(57.74, 11.94),
-		L.latLng(57.6792, 11.949)
+		L.latLng(-34.156117, -70.734842),
+		L.latLng(-34.226029, -70.882644)
 	],
 	geocoder: L.Control.Geocoder.nominatim(),
 	routeWhileDragging: true,

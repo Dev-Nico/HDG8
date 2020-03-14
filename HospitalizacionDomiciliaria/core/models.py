@@ -27,8 +27,17 @@ class Datos_Personales(models.Model):
 # INSERT INTO hospitaldb.core_datos_personales (id, Primer_Nombre, Segundo_Nombre, Apellido_Paterno, Apellido_Materno, Domicilio, Telefono, Rut, Nacionalidad, Fecha_Nacimiento, Comuna) VALUES (9, 'Natasha', '', 'Romanova', '', 'Calle Todos Los Santos 1254, San Bernardo, Región Metropolitana', '+56999999999', '99999999k', 'Chileno', '2000-01-01', 'San Bernardo');
 # INSERT INTO hospitaldb.core_datos_personales (id, Primer_Nombre, Segundo_Nombre, Apellido_Paterno, Apellido_Materno, Domicilio, Telefono, Rut, Nacionalidad, Fecha_Nacimiento, Comuna) VALUES (10, 'I', 'Am', 'Groot', '', 'Lago Ranco 401, San Bernardo, Región Metropolitana', '+56900000000', '00000000k', 'Chileno', '2000-01-01', 'San Bernardo');
 # SELECT * FROM hospitaldb.core_datos_personales;
+
+class Coordenada(models.Model):
+    idDatos_Personales = models.ForeignKey(Datos_Personales, on_delete=models.CASCADE)
+    Latitud = models.DecimalField(max_digits=9, decimal_places=6)
+    Longitud = models.DecimalField(max_digits=9, decimal_places=6)
+# DELETE FROM hospitaldb.core_coordenada WHERE id<100;
+# SELECT * FROM hospitaldb.core_coordenada;
+
+
 class Usuario(models.Model):
-    idDatos = models.ForeignKey(Datos_Personales, on_delete=models.CASCADE, unique=True)
+    idDatos = models.ForeignKey(Datos_Personales, on_delete=models.CASCADE)
     Username = models.CharField(max_length=20)
     Contraseña = models.CharField(max_length=20)
     Tipo_Usuario = models.IntegerField()

@@ -28,6 +28,9 @@
         .parent:hover {
             background-color: #F5F5F5;
         }
+        #lista-pacientes {
+            display: show;
+        }
 
         /* Mapa a la derecha */
         .map {
@@ -48,37 +51,40 @@
             {% for Ruta in Rutas %}
 
             <ul class="list-group">
-                <li class="list-group-item node-treeview1 parent" data-nodeid="0" style="color:undefined;background-color:undefined;">
+                <li class="list-group-item node-treeview1 parent" onclick="HideDiv({{Ruta.id}})" data-nodeid="0" style="color:undefined;background-color:undefined;">
                     <span class="icon expand-icon glyphicon glyphicon-minus"></span>
                     <span class="icon node-icon"></span>Equipo {{ Ruta.id }}</li>
-                    
+                    <div  id="lista-pacientes-{{Ruta.id}}"  style="display: none;">
                     {% for Equipo in Equipos %}
                     {% if Equipo.idRuta_id == Ruta.id %}
-                            
+                        
                         {% for Usuario in Usuarios %}
                         {% if Usuario.id == Equipo.idUsuario_id %}
-                                
+                            
                             {% for Dato in Datos %}
                             {% if Dato.id == Usuario.id %}
 
-                                <li class="list-group-item node-treeview1 smallfont lista-pacientes" data-nodeid="1" style="color:undefined;background-color:undefined;">
+                                <li class="list-group-item node-treeview1 smallfont" data-nodeid="1" style="color:undefined;background-color:undefined;">
                                     <span class="indent"></span>
                                     <span class="icon expand-icon glyphicon glyphicon-plus"></span>
-                                    <span class="icon node-icon"></span>{{ Dato.Primer_Nombre }} {{ Dato.Segundo_Nombre }} {{ Dato.Apellido_Paterno }} {{ Dato.Apellido_Materno }}</li>
-
+                                    <span class="icon node-icon"></span>{{ Dato.Primer_Nombre }} {{ Dato.Segundo_Nombre }} {{ Dato.Apellido_Paterno }} {{ Dato.Apellido_Materno }}
+                                </li>
+                                    
                             {% endif %}
                             {% endfor %}
-
+                                    
                         {% endif %}
                         {% endfor %}
-
+                                    
                     {% endif %}
                     {% empty %}
-                        
+                                    
                         <p>No User Data Available</p>
-
+                        
                     {% endfor %}
-    
+                                    
+                    </div>
+
             {% empty %}
                 <p>No Data Available</p>
             {% endfor %}
@@ -93,10 +99,9 @@
         <script src="{% static 'ruta/js/leaflet-routing-machine.js' %}"></script>
         <script src="{% static 'ruta/js/Control.Geocoder.js' %}"></script>
         <script src="{% static 'ruta/js/config.js'%}"></script>
-        <script src="{% static 'ruta/js/index.js'%}"></script> <!-- Routes Imput -->
+        <script src="{% static 'ruta/js/index.js'%}"></script>  <!-- Routes Imput -->
         <script src="{% static 'ruta/js/lrm-valhalla.js'%}"></script>
-        <!--<script src="{% static 'ruta/js/mapa.js'%}"></script>-->
-        <!--<script src="{% static 'ruta/js/list-of-routes.js'%}"></script>-->
+        <!-- <script src="{% static 'ruta/js/mapa.js'%}"></script> -->
 
 <!--
 
@@ -136,10 +141,44 @@
         </script>
 -->
 
-
+        <script>
+            function HideDiv(IdList){
+                var IdElement = "lista-pacientes-" + IdList
+                var element = document.getElementById(IdElement)
+                if (element.style.display == "block"){
+                    document.getElementById(IdElement).style.display = "none"
+                }else{
+                   document.getElementById(IdElement).style.display = "block"
+                }
+            }
+            
+        </script>
 
 
 
     </body>
 
 {% endblock %}
+
+
+<!--
+Coordenadas Pacientes
+-33.574758, -70.675552
+-33.576958, -70.690707
+-33.575946, -70.668014
+-33.582300, -70.689205
+-33.561528, -70.676688
+-33.565860, -70.671914
+-33.560894, -70.657658
+-33.571703, -70.665466
+-33.591874, -70.671005
+-33.597625, -70.690105
+
+Coordenada Hospital
+-33.584491, -70.676733
+
+Coordenadas Rancagua
+-34.156117, -70.734842
+-34.226029, -70.882644
+
+-->

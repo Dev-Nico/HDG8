@@ -1,4 +1,4 @@
-var map = L.map('map').setView([-33.561048,-70.506516],11)
+var map = L.map('map').setView([0.584491, 0.676733],9)
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
